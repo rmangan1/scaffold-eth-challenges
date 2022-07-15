@@ -26,11 +26,8 @@ contract RiggedRoll is Ownable {
       bytes32 hash = keccak256(abi.encodePacked(prevHash, address(diceGame), diceGame.nonce()));
       uint256 roll = uint256(hash) % 16;
 
-      console.log("my bad roll %d", roll);
-
       require(roll <= 2, "this is a bad roll!");
       diceGame.rollTheDice{value: 0.002 ether}();
-      console.log("my roll %d", roll);
 
 
     }
