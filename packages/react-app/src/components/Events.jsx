@@ -28,13 +28,17 @@ export default function Events({ contracts, contractName, eventName, localProvid
       <h2>
         {eventName} Events
         <br />
-        {eventName === "EthToTokenSwap"
+        {eventName === "Approval"
+          ? "🎈-->⟠ Owner | Spender | Amount "
+          : eventName === "EthToTokenSwap"
           ? " ⟠ -->🎈 Address | Trade | AmountIn | AmountOut"
           : eventName === "TokenToEthSwap"
           ? "🎈-->⟠ Address | Trade | AmountOut | AmountIn"
           : eventName === "LiquidityProvided"
           ? "➕ Address | Liquidity Minted | Eth In | Balloons In"
-          : "➖ Address | Liquidity Withdrawn | ETH out | Balloons Out "}
+          : "➖ Address | Liquidity Withdrawn | ETH out | Balloons Out "
+
+        }
       </h2>
       <List
         bordered
